@@ -1,4 +1,4 @@
-CREATE TABLE stcc_master_data (
+CREATE TABLE stc_master_data (
     material_no INT(11) NOT NULL AUTO_INCREMENT,
     length DECIMAL(10,2),
     girth DECIMAL(10,2),
@@ -32,3 +32,19 @@ CREATE TABLE stcc_master_data (
     FOREIGN KEY (region_id) REFERENCES another_table(region_id),
     FOREIGN KEY (user_id) REFERENCES yet_another_table(user_id)
 );
+
+
+
+
+
+
+CREATE TABLE stc_modify_reason (
+    reason_id INT(11) NOT NULL AUTO_INCREMENT,
+    log_id INT(11) NOT NULL,
+    user_id BIGINT(20) NOT NULL,
+    reason VARCHAR(255) NOT NULL,
+    PRIMARY KEY (reason_id),
+    FOREIGN KEY (log_id) REFERENCES stc_working_sheet_log(log_id),
+    FOREIGN KEY (user_id) REFERENCES users_table(user_id)
+);
+
